@@ -11,14 +11,14 @@ interface CarCardProps {
     car: CarProps
 }
 
-const CarCard = ({car}: CarCardProps) => {
+const CarCard = ({car}: CarCardProps ) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const {city_mpg, year, make, model, transmission, drive}: CarProps = car;
 
     const carRent = calculateCarRent(city_mpg, year);
     return (
-        <div className={"car-card group"}>
+        <div key={`${make + model} `} className={"car-card group"}>
             <div className={"car-card__content"}>
                 <h2 className={"car-card__content-title"}>
                     {make} {model}
